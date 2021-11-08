@@ -56,6 +56,8 @@ for files in all_files:
     if files.endswith(images):
         # Checking if folder already exists
         check_dir = os.path.exists(path2 + '\\' + folders_make[0])
+        
+        # Checking for if directory already exists
         if not check_dir:
             
             # Making Images folder
@@ -64,12 +66,15 @@ for files in all_files:
             # Moving to files to images
             os.replace(path + '\\' + files, path2 + '\\' + folders_make[0] + '\\' + files)
         else:
+            # Moving to files to images
             os.replace(path + '\\' + files, path2 + '\\' + folders_make[0] + '\\' + files)
             
     # Checking for archieve files
     if files.endswith(archieve):
         # Checking if folder already exists
         check_dir = os.path.exists(path2 + '\\' + folders_make[1])
+        
+        # Checking for if directory already exists
         if not check_dir:
             
             # Making archieve folder
@@ -78,12 +83,15 @@ for files in all_files:
             # Moving to files to archieve
             os.replace(path + '\\' + files, path2 + '\\' + folders_make[1] + '\\' + files)
         else:
+            # Moving to files to archieve
             os.replace(path + '\\' + files, path2 + '\\' + folders_make[1] + '\\' + files)
             
     # Checking for documents files
     if files.endswith(documents):
         # Checking if folder already exists
         check_dir = os.path.exists(path2 + '\\' + folders_make[2])
+        
+        # Checking for if directory already exists
         if not check_dir:
             
             # Making documents folder
@@ -92,12 +100,15 @@ for files in all_files:
             # Moving to files to documents
             os.replace(path + '\\' + files, path2 + '\\' + folders_make[2] + '\\' + files)
         else:
+            # Moving to files to documents
             os.replace(path + '\\' + files, path2 + '\\' + folders_make[2] + '\\' + files)
             
     # Checking for softwares files
     if files.endswith(softwares):
         # Checking if folder already exists
         check_dir = os.path.exists(path2 + '\\' + folders_make[3])
+        
+        # Checking for if directory already exists
         if not check_dir:
             
             # Making softwares folder
@@ -106,12 +117,15 @@ for files in all_files:
             # Moving to files to softwares
             os.replace(path + '\\' + files, path2 + '\\' + folders_make[3] + '\\' + files)
         else:
+            # Moving to files to softwares
             os.replace(path + '\\' + files, path2 + '\\' + folders_make[3] + '\\' + files)
             
     # Checking for apps files
     if files.endswith(apps):
         # Checking if folder already exists
         check_dir = os.path.exists(path2 + '\\' + folders_make[4])
+        
+        # Checking for if directory already exists
         if not check_dir:
             
             # Making apps folder
@@ -120,12 +134,15 @@ for files in all_files:
             # Moving to files to apps
             os.replace(path + '\\' + files, path2 + '\\' + folders_make[4] + '\\' + files)
         else:
+            # Moving to files to apps
             os.replace(path + '\\' + files, path2 + '\\' + folders_make[4] + '\\' + files)
             
     # Checking for video files
     if files.endswith(video):
         # Checking if folder already exists
         check_dir = os.path.exists(path2 + '\\' + folders_make[6])
+        
+        # Checking for if directory already exists
         if not check_dir:
             
             # Making video folder
@@ -134,12 +151,15 @@ for files in all_files:
             # Moving to files to video
             os.replace(path + '\\' + files, path2 + '\\' + folders_make[6] + '\\' + files)
         else:
+            # Moving to files to video
             os.replace(path + '\\' + files, path2 + '\\' + folders_make[6] + '\\' + files)
             
     # Checking for audio files
     if files.endswith(audio):
         # Checking if folder already exists
         check_dir = os.path.exists(path2 + '\\' + folders_make[7])
+        
+        # Checking for if directory already exists
         if not check_dir:
             
             # Making audio folder
@@ -148,6 +168,7 @@ for files in all_files:
             # Moving to files to audio
             os.replace(path + '\\' + files, path2 + '\\' + folders_make[7] + '\\' + files)
         else:
+            # Moving to files to audio
             os.replace(path + '\\' + files, path2 + '\\' + folders_make[7] + '\\' + files)
             
     # Checking for gif files
@@ -171,9 +192,15 @@ print('Managing Folders..')
 for folders in all_folders:
     # print(len(folders))
     check_for_empty = os.listdir(path + '\\' + folders)
+    
+    # Cecking if directory contain file or not
     if len(check_for_empty) == 0:
+        
+        # Deleting empty Directory
         os.rmdir(path + '\\' + folders)
     else:
+        
+        # Moving all folders except 'Images','Softwares','Folders','Archieves','Documents','Apps','Video','Audio','GIF'
         if not folders in except_folders:
             shutil.move(path + '\\' + folders, path2 + '\\' + folders_make[5])
 print('Done')
